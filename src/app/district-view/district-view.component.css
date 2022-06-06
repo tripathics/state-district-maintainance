@@ -1,0 +1,43 @@
+button, select {
+    border-radius: 5px;
+    padding: 0.15em;
+    text-align: center;
+    width: 10rem;
+    padding: 0.3rem 0.7rem;
+}
+
+
+div.select-edit {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+div.select-edit > * {
+    font-size: small;
+    margin-bottom: 1rem;
+}
+
+select {
+    background-color: #3d8bcd;
+    color: white;
+}
+
+label {
+    font-weight: bold;
+}
+
+button {
+    background-color: #55bfe0;
+    color: white;
+    border-color: transparent;
+}
+
+
+button:hover {
+    background-color: #3d8bcd;
+}
+
+button:active {
+    background-color: #3a3a3a;
+}

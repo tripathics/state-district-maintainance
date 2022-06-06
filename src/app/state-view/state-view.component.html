@@ -1,0 +1,14 @@
+<!-- states -->
+<div class="ctnr">
+    <label for="state">State</label>
+    <div class="select-edit">
+        <select (ngModelChange)="0" [(ngModel)]="selectedStateId" name="state" id="state">
+            <option *ngFor="let state of states" [value]="state.id">{{state.name}}</option>
+        </select>
+        <button (click)="addNew()" type="button">Add New</button>
+        <app-state-adder [(editor)]="toAdd"></app-state-adder>
+    </div>
+</div>
+
+<!-- districts -->
+<app-district-view [stateId]="selectedStateId" *ngIf="selectedStateId"></app-district-view>

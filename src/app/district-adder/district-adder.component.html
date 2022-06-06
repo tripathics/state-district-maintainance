@@ -1,0 +1,5 @@
+<div *ngIf="editor" class="add">
+    <input type="text" placeholder="District Name" #dtName>
+    <button (click)="add(dtName.value)" type="button"><img src="./assets/images/v.png" alt="Tick icon"></button>
+    <button (click)="cancel()" type="button"><img src="./assets/images/x.png" alt="Cross icon"></button>
+</div>

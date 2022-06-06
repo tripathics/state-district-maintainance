@@ -1,0 +1,5 @@
+<div *ngIf="editor" class="add">
+    <input type="text" placeholder="State Name" #stName>
+    <button id="tick" (click)="add(stName.value)" type="button"><img src="./assets/images/v.png" alt="Tick icon"></button>
+    <button id="cross" (click)="cancel()" type="button"><img src="./assets/images/x.png" alt="Cross icon"></button>
+</div>

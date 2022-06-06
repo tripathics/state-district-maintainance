@@ -1,0 +1,34 @@
+
+input {
+    border: 1px solid #3d8bcd;
+    text-align: left;
+    border-radius: 5px;
+    width: 10rem;
+    padding: 0.3rem 0.7rem;
+}
+
+button {
+    padding: 0.3rem;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #55bfe0;
+    color: white;
+    border-color: transparent;
+}
+
+
+button:hover {
+    background-color: #3d8bcd;
+}
+
+button:active {
+    background-color: #3a3a3a;
+}
+
+div.add {
+    width: 10rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
