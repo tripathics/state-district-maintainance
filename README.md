@@ -1,27 +1,70 @@
-# StateDistrictMntnce
+# State & District Maintainance
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+A webpage to maintain state & district using HTML, CSS and Angular
 
-## Development server
+## Components overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<div>
+    <img src="./media/sdm-labeled.png" style="display: block; width: 80%; max-width: 650px; margin: 30px auto;">
+</div>
 
-## Code scaffolding
+App components:
+* **`<app-root>`**: The root component which angular includes by default in [index.html](./src/index.html)
+    * **`<app-header>`**: This is the heading of the page cotaining the title- "State & District Maintainance"
+    * **`<app-state-view>`**: This provides the interface to view states from a dropdown menu. It has two child components:
+        * **`<app-state-adder>`**: On clicking the <kbd>Add New</kbd> button, this component appears showing an input box, ✔️ (add button) and ❌ (cancel button).  
+        Add a new state into the states list using this component.
+        * **`<app-district-view>`**: To view districts under the selected state. Has one child component:
+            * **`<app-district-adder>`**: Same as `<app-state-adder>`, but adds a district under the selected state from input box.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## `state-district.service`
 
-## Build
+The states and districts in the app are provided by the [state-district service](./src/app/state-district.service.ts). The app is just a frontend so it stores the state & districts in `STATES` array- a property of the state-district service.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+State and District are implemented in [place.ts](./src/app/place.ts):
+```ts
+export interface State {
+    id: number;
+    name: string;
+    districts: District[];
+}
 
-## Running unit tests
+export interface District {
+    id: number;
+    name: string;
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Properties:
+* `STATES: State[]`: An array of `State`. States and districts in the app are provided from here.
 
-## Running end-to-end tests
+### Methods:
+* `getStates()`: Returns the `STATES` array.
+* `addState(stateName: string)`: Creates a `newState` provided the name of the state and appends to the `STATES` array.
+* `getDistricts(stateId: number)`: Returns the list of districts under a state provided the `stateId`.
+* `addDistrict(stateId: number, districtName: string)`: Creates a district using the `districtName` provided and appends to the list of districts under the state having id of `stateId`.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Reference
 
-## Further help
+### Interfaces
+* **State, District:**
+    * TS file: [place.ts](./src/app/place.ts)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Services
+* **state-district service:**
+    * TS Class: [state-district.service.ts](./src/app/state-district.service.ts)
+
+### Components
+
+* **app-state-view:**
+    * TS Class: [state-view.component.ts](./src/app/state-view/state-view.component.ts)
+    * Template: [state-view.component.html](./src/app/state-view/state-view.component.html)
+* **app-state-adder:**
+    * TS Class: [state-adder.component.ts](./src/app/state-adder/state-adder.component.ts)
+    * Template: [state-adder.component.html](./src/app/state-adder/state-adder.component.html)
+* **app-district-view:**
+    * TS Class: [district-view.component.ts](./src/app/district-view/district-view.component.ts)
+    * Template: [district-view.component.html](./src/app/district-view/district-view.component.html)
+* **app-district-adder:**
+    * TS Class: [district-adder.component.ts](./src/app/district-adder/district-adder.component.ts)
+    * Template: [district-adder.component.html](./src/app/district-adder/district-adder.component.html)
