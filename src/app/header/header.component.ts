@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() heading?: string;        // page heading within h1
+  @Input() heading?: string;        // heading of the page from title of app
 
   constructor() { }
 

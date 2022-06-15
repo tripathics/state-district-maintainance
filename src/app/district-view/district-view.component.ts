@@ -11,11 +11,15 @@ export class DistrictViewComponent implements OnInit, OnChanges {
 
   @Input() stateId!: number;
   ngOnChanges(changes: SimpleChanges): void {
-    this.getDistricts();
+    if (changes["stateId"]) {
+      this.getDistricts();
+    }
   }
 
+  // true when a district is to be added (when Add-New button is clicked)
   toAdd?: boolean;
 
+  // Contains the districts under the state with id of stateId 
   districts?: District[];
 
   constructor(private stateDistrictService: StateDistrictService) { }
@@ -24,8 +28,9 @@ export class DistrictViewComponent implements OnInit, OnChanges {
     this.getDistricts();
   }
 
+  // get districts under the the state with id of stateId from state-district service
+  // and assign it to the districts property of this component
   getDistricts(): void {
-    console.log(`state id is: ${this.stateId}`);
     this.districts = this.stateDistrictService.getDistricts(this.stateId);
   }
 

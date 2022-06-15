@@ -39,3 +39,9 @@ div.add > button > img {
     height: 1.6em;
     vertical-align: middle;
 }
+
+body {
+    max-width: 450px;
+    margin: 0.5em auto;
+    border: solid 2px red;
+}

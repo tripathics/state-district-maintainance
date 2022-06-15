@@ -25,8 +25,6 @@ export class StateDistrictService {
   }
 
   getDistricts(stateId: number): District[] {
-    console.log(stateId)
-    console.log(this.STATES[stateId - 1].districts)
     return this.STATES[stateId - 1].districts;
   }
 
